@@ -50,4 +50,15 @@ public class Billiste
 		}
 		return counter;
 	}
+	public String carInfo()
+	{
+		Bil runner = first;
+		String info = null;
+		while ( runner.next != null)
+		{
+			info += runner.toString() +"\n\n";
+			runner = runner.next;
+		}
+		return info;
+	}
 }
