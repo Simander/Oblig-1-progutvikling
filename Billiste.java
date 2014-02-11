@@ -39,5 +39,15 @@ public class Billiste
 			runner = runner.next;
 		runner.next = runner.next.next;
 	}
-	
+	public int listEntries()
+	{
+		Bil runner = first;
+		int counter = 0;
+		while ( runner.next != null)
+		{
+			counter += 1;
+			runner = runner.next;
+		}
+		return counter;
+	}
 }
