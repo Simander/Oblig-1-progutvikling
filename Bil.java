@@ -8,7 +8,7 @@ public class Bil
         public String brand; //Maker of the car
         public String model; //Car-model
         private Calendar regDate; //The date when the car was first registered
-
+        Bil next;
         //Constructor
         public Bil(String r, String b, String m, Calendar d)
         {
@@ -16,6 +16,7 @@ public class Bil
                 brand = b;
                 model = m;
                 regDate = d;
+                next = null;
         }
         //get-method for returning the Registration Number
         public String getRegNum()
