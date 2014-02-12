@@ -1,5 +1,6 @@
 package bil;
-
+//important import sentences
+import java.text.DateFormat;
 import java.util.Calendar;
 
 public class Bil
@@ -8,6 +9,7 @@ public class Bil
         public String brand; //Maker of the car
         public String model; //Car-model
         private Calendar regDate; //The date when the car was first registered
+        DateFormat formata; 
         Bil next;
         //Constructor
         public Bil(String r, String b, String m, Calendar d)
@@ -17,6 +19,8 @@ public class Bil
                 model = m;
                 regDate = d;
                 next = null;
+               formata = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.MEDIUM);
+                
         }
         //get-method for returning the Registration Number
         public String getRegNum()
@@ -28,6 +32,6 @@ public class Bil
         {
                 return "Registration Number: " + regNum +
                  "\nBrand: " + brand + "\nModel: " + model +
-                 "\nRegistration Date: " + regDate;
+                 "\nRegistration Date: " + formata.format(regDate.getTime());
         }
 }
