@@ -26,39 +26,65 @@ public class Billiste
 	//Method for finding a car in the list by registration number
 	public Bil findCar( String regNum )
 	{
+		
 		Bil runner = first;
-		while ( runner.next.getRegNum() != null && runner.next.getRegNum() == regNum )
-			runner = runner.next;
+		if (runner != null && runner.getRegNum().equals(regNum))
+			return runner;
+		else
+		{
+			while ( runner.next != null && !(runner.next.getRegNum().equals(regNum)))
+					runner = runner.next;
+		}
 		return runner.next;
 	}
 	//Method for removing a car from the list
 	public void delCar( String regNum )
 	{
-		Bil runner = first;
-		while ( runner.next.getRegNum() != null && runner.next.getRegNum() == regNum )
-			runner = runner.next;
-		runner.next = runner.next.next;
+		
+			Bil runner = first;
+			if (runner != null && runner.getRegNum().equals(regNum))
+				first = runner.next;
+			else
+			{
+				while ( runner.next.getRegNum() != null && !(runner.next.getRegNum().equals(regNum)) )
+				runner = runner.next;
+				runner.next = runner.next.next;
+			}
 	}
-	public int listEntries()
+	//method for listing number of entries in the register 
+	public String numEntries()
 	{
-		Bil runner = first;
-		int counter = 0;
-		while ( runner.next != null)
-		{
-			counter += 1;
-			runner = runner.next;
-		}
-		return counter;
+		
+		String chk = "";
+			Bil runner = first;
+			int counter = 0;
+			if(first != null)
+				counter = 1;
+			while ( runner.next != null)
+			{		
+				runner = runner.next;
+				counter+=1;
+			}
+			chk = counter + " Biler registrert! "; 
+			return chk;
 	}
-	public String carInfo()
+	//method to list all entries in the register
+	public String listEntries()
 	{
 		Bil runner = first;
 		String info = null;
-		while ( runner.next != null)
+		if(first != null)
 		{
-			info += runner.toString() +"\n\n";
-			runner = runner.next;
+			info=first.toString() +"\n";
+			while ( runner.next != null)
+			{
+				runner = runner.next;
+				info += "\n" + runner.toString() +"\n";
+			}
 		}
+		else
+			info="Ingen biler i registeret!";
 		return info;
 	}
 }
+
