@@ -1,0 +1,15 @@
+package bil;
+import javax.swing.JFrame;
+public class Biltester 
+{
+	//main method
+	public static void main (String[] args)
+	{
+		Billiste carList = new Billiste(); 
+		Garage carHouse = new Garage(carList);
+		carHouse.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		carHouse.setVisible(true);
+		carHouse.setResizable(false);
+		carHouse.setSize(380, 550);
+	}
+}
