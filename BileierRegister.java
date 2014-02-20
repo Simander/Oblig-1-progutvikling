@@ -23,9 +23,9 @@ public class BileierRegister extends JFrame
 		name = new JTextField(25);
 		add = new JTextField(25);
 		find = new JButton("finn");
-		regO = new JButton("Registrer ny neier");
+		regO = new JButton("Registrer ny eier");
 		delO = new JButton("Slett eier");
-		
+		info = new JTextArea();
 		//Opretter et content pane
 		Container c = getContentPane();
 		c.setLayout( new FlowLayout() );
@@ -41,6 +41,7 @@ public class BileierRegister extends JFrame
 		c.add(delO);
 		c.add( new JScrollPane(info));
 		info.setEditable( false );
+		info.setSize(100, 100);
 		readFile();
 		uNr.addActionListener(lytter);
 		name.addActionListener(lytter);
