@@ -20,5 +20,9 @@ public abstract class Bileier implements Serializable
 	{
 		return cars;
 	}
-		
+	public String toString()
+	{
+		String print = "\nNavn: " + name + "\nAdresse: " + address + "\nBiler:\n" + cars.toString();
+		return print;
+	}
 }
