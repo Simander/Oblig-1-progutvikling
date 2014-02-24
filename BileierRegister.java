@@ -17,7 +17,7 @@ public class BileierRegister extends JFrame
 	private JButton delO;
 	private JTextArea info;
 	private JCheckBox check;
-	
+
 	public BileierRegister()
 	{
 		super("Bileier register");
@@ -67,12 +67,12 @@ public class BileierRegister extends JFrame
 		{
 			if (check.isSelected()==false)
 			{
-				usr = new Person(n, a);
+				usr = new Person(n, a, num);
 				carOwner.insertBileier(usr);
 				JOptionPane.showMessageDialog(null, "ny eier, type person er registrert!");
 			}
 			else
-				usr = new Firma(n, a);
+				usr = new Firma(n, a, num);
 				carOwner.insertBileier(usr);
 		}		JOptionPane.showMessageDialog(null, "ny eier, type firma er registrert!");
 		if (carOwner.find1(num) != null)
@@ -125,7 +125,7 @@ public class BileierRegister extends JFrame
 			showErrorMsg("Problem med utskrift til fil!");
 		}
 	}
-	
+
 	private class Commandlistener implements ActionListener
 	{
 		public void actionPerformed( ActionEvent e )
@@ -140,10 +140,10 @@ public class BileierRegister extends JFrame
 			}
 			else if ( e.getSource() == delO )
 			{
-				
+
 			}
 	    }
 	}
-	  
-	
+
+
 }
